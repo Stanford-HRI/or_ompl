@@ -38,6 +38,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <or_ompl/SemiToroidalStateSpace.h>
 #include <or_ompl/OMPLConversions.h>
+#include <log4cxx/logger.h>
 
 namespace or_ompl {
 
@@ -75,8 +76,8 @@ void OpenRAVEHandler::log(std::string const &text, ompl::msg::LogLevel level,
 #ifdef OPENRAVE_LOG4CXX
         log4cxx::spi::LocationInfo const location_info(
             OpenRAVE::RaveGetSourceFilename(filename), "", line);
-        OpenRAVE::RavePrintfA_DEBUGLEVEL(
-            OpenRAVE::RaveGetLogger(), location_info, text);
+//        OpenRAVE::RavePrintfA_DEBUGLEVEL(
+//            OpenRAVE::RaveGetLogger(), location_info, text);
 #else
         OpenRAVE::RavePrintfA_DEBUGLEVEL("[%s:%d] %s\n",
             OpenRAVE::RaveGetSourceFilename(filename), line,
